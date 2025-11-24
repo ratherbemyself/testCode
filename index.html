@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <title>我的手机小游戏</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <!-- 移动端适配，禁止缩放，减少多余计算 -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
   <style>
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; /* 防止滚动条 */
-      background: #000; /* 画面外黑边 */
+      overflow: hidden;
+      background: #000; /* 画布外留黑边就行 */
+      touch-action: manipulation; /* 减少双击缩放之类的延迟 */
     }
     #game {
       width: 100%;
@@ -20,13 +25,11 @@
   </style>
 </head>
 <body>
-  <!-- 游戏画布挂在这个 div 上 -->
   <div id="game"></div>
 
-  <!-- 引入 Phaser 游戏引擎（通过 CDN） -->
-  <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+  <!-- 使用压缩版 Phaser，体积更小，加载更快 -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
 
-  <!-- 你的游戏逻辑 -->
   <script src="game.js"></script>
 </body>
 </html>
